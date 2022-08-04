@@ -1,0 +1,93 @@
+body {
+    font-family: arial;
+    font-size: 16px;
+    margin: 0;
+    background: rgb(34,35,245);
+    background: linear-gradient(0deg, rgba(34,35,245,1) 0%, rgba(171,49,227,1) 74%);
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.stick {
+    width: 600px;
+    height: 25px;
+    background: #ff00c8;
+    border-radius: 30px;
+    border-color: rgb(237, 241, 241);
+    border-style: dotted;
+    position: relative;
+
+    transform: rotate(-35deg);
+    animation: stickUpDown 4s ease-in-out 1s infinite alternate;
+
+}
+
+.ball {
+    position: absolute;
+    bottom: calc(100% + 3px);
+    left: calc(100% - 90px);
+    width: 110px;
+    height: 110px;
+    background: #e6f32a;
+    border-color: #b8a713;
+    border-radius: 50%;
+    border-style: double;
+
+    animation: ballMoving 4s ease-in-out 1s infinite alternate;
+}
+
+.ball:after {
+    position: absolute;
+    content: '';
+    top: 75px;
+    right: 10px;
+    width: 10px;
+    height: 10px;
+    /* background: #FFF; */
+    border-radius: 50%;
+}
+
+.ball:before {
+    position: absolute;
+    content: '';
+    top: 75px;
+    left: 10px;
+    width: 10px;
+    height: 10px;
+    /* background: #FFF; */
+    border-radius: 50%;
+}
+
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@keyframes stickUpDown {
+    from {
+        transform: rotate(-35deg);
+    }
+
+    to {
+        transform: rotate(35deg);
+    }
+}
+
+@keyframes ballMoving {
+    from {
+        left: calc(100% - 90px);
+        transform: rotate(360deg);
+    }
+
+    to {
+        left: calc(0% - 20px);
+        transform: rotate(0deg);
+    }
+}
